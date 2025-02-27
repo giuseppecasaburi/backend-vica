@@ -40,7 +40,7 @@ const index = (req, res) => {
 
         return res.status(200).json({
             status: "Success",
-            message: modelli
+            data: modelli
         })
     })
 
@@ -88,7 +88,7 @@ const show = (req, res) => {
 
         return res.status(200).json({
             status: "Success",
-            message: modelloSingolo
+            data: modelloSingolo
         })
     })
 }
