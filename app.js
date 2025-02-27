@@ -1,7 +1,13 @@
 // IMPORT PER EXPRESS, CORS E DOTENV. EXPRESS PER IL SERVER BACKEND, CORS PER PERMETTERE LE RICHIESTE E DOTENV PER LE VARIABILI D'AMBIENTE
-const express = require('express');
-const cors = require('cors');
-require("dotenv").config();
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+// CONFIGURAZIONE DELLE VARIABILI D'AMBIENTE
+dotenv.config();
+
+// IMPORT DEI VARI ROUTER
+import collezioniRouter from './routers/collezioni.js';
 
 // PORTA DEL SERVER DINAMICA IN BASE A SE è IN A,MBIENTE DI SVILUPPO O PRODUZIONE
 const port = process.env.NODE_ENV === "development" ? process.env.PORT : process.env.PORT_PROD;
@@ -18,6 +24,8 @@ app.get("/", (req, res) => {
     console.log("Richiesta ricervuto");
     res.send("Funziona coglionazzo");
 });
+
+app.use("/collezioni", collezioniRouter)
 
 // AVVIO DEL SERVER SULLA PORTA SPECIFICATA
 app.listen(port, () => {
