@@ -8,6 +8,7 @@ dotenv.config();
 
 // IMPORT DEI VARI ROUTER
 import collezioniRouter from './routers/collezioni.js';
+import modelliRouter from './routers/modelli.js'
 
 // PORTA DEL SERVER DINAMICA IN BASE A SE è IN A,MBIENTE DI SVILUPPO O PRODUZIONE
 const port = process.env.NODE_ENV === "development" ? process.env.PORT : process.env.PORT_PROD;
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/collezioni", collezioniRouter)
+app.use("/modelli", modelliRouter)
 
 // AVVIO DEL SERVER SULLA PORTA SPECIFICATA
 app.listen(port, () => {
